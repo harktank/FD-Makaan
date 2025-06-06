@@ -9,11 +9,12 @@ import type { Property } from "@/lib/types"
 
 interface PropertyCardProps {
   property: Property
+  className?: string
 }
 
-export default function PropertyCard({ property }: PropertyCardProps) {
+export default function PropertyCard({ property, className }: PropertyCardProps) {
   return (
-    <Card className="overflow-hidden hover:shadow-2xl transition-all duration-500 hover:-translate-y-2 group card-modern border-white/10">
+    <Card className={`overflow-hidden hover:shadow-2xl transition-all duration-500 hover:-translate-y-2 group card-modern border-white/10 ${className ?? ""}`}>
       <div className="relative">
         <Link href={`/property/${property.id}`}>
           <div className="relative h-56 w-full overflow-hidden">
@@ -106,14 +107,14 @@ export default function PropertyCard({ property }: PropertyCardProps) {
           </div>
         </div>
 
-        {property.rating && (
+        {property.rating !== undefined && (
           <div className="flex items-center justify-between text-sm mb-4">
             <div className="flex items-center gap-1">
               <div className="flex">
                 {[...Array(5)].map((_, i) => (
                   <Star
                     key={i}
-                    className={`h-4 w-4 ${i < property.rating ? "text-yellow-400 fill-yellow-400" : "text-slate-600"}`}
+                    className={`h-4 w-4 ${i < (property.rating ?? 0) ? "text-yellow-400 fill-yellow-400" : "text-slate-600"}`}
                   />
                 ))}
               </div>

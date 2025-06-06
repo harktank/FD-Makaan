@@ -51,9 +51,8 @@ export default function HomePage() {
             </div>
 
             <h1 className="text-5xl md:text-7xl font-bold mb-6 leading-tight">
-              <span className="gradient-text">Future of</span>
-              <br />
-              <span className="text-white">Real Estate</span>
+              <span className="gradient-text">Seal The Deal</span>
+             
             </h1>
 
             <p className="text-xl md:text-2xl text-slate-300 mb-8 max-w-3xl mx-auto leading-relaxed">
